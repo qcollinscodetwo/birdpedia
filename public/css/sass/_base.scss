@@ -1,0 +1,11 @@
+html {
+    height: 100%;
+    width: 100%;
+    body {
+        @extend html;
+    }
+}
+
+h1, h2, h3, h4, h5, p, a {
+    text-align: center;
+}

@@ -1,0 +1,31 @@
+/* line 1, ../sass/_base.scss */
+html, html body {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 9, ../sass/_base.scss */
+h1, h2, h3, h4, h5, p, a {
+  text-align: center;
+}
+
+/* line 1, ../sass/pages/_home.scss */
+.home-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+}
+
+/* line 2, ../sass/pages/_campgrounds.scss */
+.campgrounds-section .img-container {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+/* line 2, ../sass/pages/_new.scss */
+.form-section .form-container {
+  width: 30%;
+  margin: 30px auto;
+}
