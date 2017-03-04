@@ -23,12 +23,16 @@ Q:::::::QQ::::::::Q   C:::::CCCCCCCC::::C  C:::::CCCCCCCC::::CO:::::::OOO:::::::
   * VARIABLES
   ***********************************/
 
- var express = require("express"),
-     request = require("request"),
-     bodyParser = require("body-parser"),
-     PORT = process.env.PORT || 3000,
-     IP = process.env.IP,
-     app = express();
+ var express       = require("express"),
+     request       = require("request"),
+     bodyParser    = require("body-parser"),
+     mongoose      = require('mongoose'),
+     PORT          = process.env.PORT || 3000,
+     IP            = process.env.IP,
+     app           = express();
+
+
+
 
 
 /**
@@ -41,26 +45,36 @@ Q:::::::QQ::::::::Q   C:::::CCCCCCCC::::C  C:::::CCCCCCCC::::CO:::::::OOO:::::::
 /** View Engine **/
  app.set("view engine", "ejs");
 
- /************************************
-  * DATA
-  ************************************/
-  var campgrounds = [
-    {name: "Solopml Creek", image:"https://static.pexels.com/photos/129922/pexels-photo-129922.jpeg"},
-    {name: "Granite Hill", image:"https://static.pexels.com/photos/237740/pexels-photo-237740.jpeg"},
-    {name: "Mounain Goat's Rest", image:"https://static.pexels.com/photos/230601/pexels-photo-230601.jpeg"},
-    {name: "Salmon Creek", image:"https://static.pexels.com/photos/129922/pexels-photo-129922.jpeg"},
-    {name: "Granite Hill", image:"https://static.pexels.com/photos/237740/pexels-photo-237740.jpeg"},
-    {name: "Mountain Goat's Rest", image:"https://static.pexels.com/photos/230601/pexels-photo-230601.jpeg"},
-    {name: "Salmon Creek", image:"https://static.pexels.com/photos/129922/pexels-photo-129922.jpeg"},
-    {name: "Granite Hill", image:"https://static.pexels.com/photos/237740/pexels-photo-237740.jpeg"},
-    {name: "Mountain Goat's Rest", image:"https://static.pexels.com/photos/230601/pexels-photo-230601.jpeg"},
-    {name: "Salmon Creek", image:"https://static.pexels.com/photos/129922/pexels-photo-129922.jpeg"},
-    {name: "Granite Hill", image:"https://static.pexels.com/photos/237740/pexels-photo-237740.jpeg"},
-    {name: "Mountain Goat's Rest", image:"https://static.pexels.com/photos/230601/pexels-photo-230601.jpeg"},
-    {name: "Salmon Creek", image:"https://static.pexels.com/photos/129922/pexels-photo-129922.jpeg"},
-    {name: "Granite Hill", image:"https://static.pexels.com/photos/237740/pexels-photo-237740.jpeg"},
-    {name: "Mountain Goat's Rest", image:"https://static.pexels.com/photos/230601/pexels-photo-230601.jpeg"}
-  ]
+
+
+
+
+
+/************************************
+  * DATABASE
+  ***********************************/
+
+/**
+ * Database Connection
+ */
+mongoose.connect('mongodb://localhost/birdsville');
+
+/**
+ * Database Scheme
+ */
+var birdSchema = new mongoose.Schema({
+  englishName: String,
+  scientificName: String,
+  prevImage: String,
+  audio: String,
+  description: String
+});
+
+/**
+ * Database Model
+ */
+var Bird = mongoose.model("Bird", birdSchema);
+
  /************************************
   * ROUTES
   ************************************/
@@ -74,23 +88,77 @@ Q:::::::QQ::::::::Q   C:::::CCCCCCCC::::C  C:::::CCCCCCCC::::CO:::::::OOO:::::::
      res.render("home");
    });
 
-   app.get("/campgrounds", function(req, res) {
-     res.render("campgrounds", {campgrounds:campgrounds});
+   // Index Route - Show a list of birds
+   app.get("/birds", function(req, res) {
+    Bird.find({}, function(err, allBirds) {
+      checkForErr(err, allBirds, "GET")(res, "birds", {birds: allBirds});
+    });
    });
-
-   app.post("/campgrounds", function (req, res) {
-     var name = req.body.name,
-         image = req.body.image,
-         newCampground = {name: name, image: image};
-         campgrounds.push(newCampground);
-         setTimeout(function() {
-           res.redirect("/campgrounds");
-         }, 3000)
-   });
-
-   app.get("/campgrounds/new", function (req, res) {
+  
+   // New Route - Display a form to create a new bird
+   app.get("/birds/new", function (req, res) {
      res.render("new");
    });
+
+   // Create Route - Add new bird to the DB
+   app.post("/birds", function (req, res) {
+     var englishName = req.body.englishName,
+         scientificName = req.body.scientificName,
+         prevImage = req.body.prevImage,
+         audio = req.body.audio,
+         description = req.body.description,
+         newBird = {englishName: englishName, scientificName: scientificName, prevImage: prevImage, audio:audio, description:description};
+         Bird.create(newBird, function(err, data) {
+          checkForErr(err, data, "POST")(res, "/birds");
+         });
+   });
+
+   // Show Route -  Shows info about one bird
+   app.get("/dogs/:id", function(req, res) {
+    res.render("");
+   });
+
+ /************************************
+  * Helper Functions
+  ************************************/
+function checkForErr(err, data, type) {
+    if(type === "dbData") {
+      if (err) {
+        console.log("******************************");
+        console.log("         ERROR");
+        console.log("******************************");
+        console.log(err);
+      } else {
+        console.log("******************************");
+        console.log("         DATA");
+        console.log("******************************");
+        console.log(data);
+      }
+    } else if (type === "GET"){
+        if (err) {
+          console.log("******************************");
+          console.log("         ERROR");
+          console.log("******************************");
+          console.log(err);
+        } else {
+          return function(res, template, obj) {
+            return res.render(template, obj);
+          }
+        }
+      } else if (type === "POST") {
+          if (err) {
+            console.log("******************************");
+            console.log("         ERROR");
+            console.log("******************************");
+            console.log(err);
+          } else {
+              return function(res, templateUrl) {
+                return res.redirect(templateUrl);
+              }
+          }
+      }
+}
+
  /************************************
   * LISTENING PORT SETUP
   ************************************/

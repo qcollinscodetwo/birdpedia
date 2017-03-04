@@ -2,20 +2,29 @@
 
 <section class="container form-section">
   <div class="row">
-    <h1>Create a New Campground</h1>
+    <h1>Add a New Bird</h1>
     <div class="form-container">
-      <form action="/campgrounds" method="POST">
+      <form action="/birds" method="POST">
         <div class="form-group">
-          <input class="form-control" type="text" placeholder="name" name="name">
+          <input class="form-control" type="text" placeholder="English name" name="englishName">
         </div>
         <div class="form-group">
-          <input class="form-control" type="text" placeholder="image url" name="image">
+          <input class="form-control" type="text" placeholder="Scientic name" name="scientificName">
+        </div>
+        <div class="form-group">
+          <input class="form-control" type="text" placeholder="Preview Image Url" name="prevImage">
+        </div>
+        <div class="form-group">
+          <input class="form-control" type="text" placeholder="Audio Url" name="audio">
+        </div>
+        <div class="form-group">
+          <input class="form-control" type="text" placeholder="Description" name="description">
         </div>
         <div class="form-group">
           <button class="btn btn-large btn-primary btn-block">Submit!</button>
         </div>
       </form>
-      <a href="/campgrounds"> Go Back</a>
+      <a href="/birds"> Go Back</a>
     </div>
   </div>
 </section>

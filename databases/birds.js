@@ -23,14 +23,12 @@ Q:::::::QQ::::::::Q   C:::::CCCCCCCC::::C  C:::::CCCCCCCC::::CO:::::::OOO:::::::
 /***********************
  * Variables
  ***********************/
-var mongoose = require('mongoose'),
-    db = mongoose.connection;
+var mongoose = require('mongoose');
 
 /***********************
  * Database Connection
  ***********************/
 mongoose.connect('mongodb://localhost/bird_app');
-
 
 /***********************
  * Database Schema
@@ -55,7 +53,14 @@ var Bird = mongoose.model("Bird", birdSchema);
     color: "black",
 });*/
 
-Bird.create
+Bird.create({
+    name: 'Snow',
+    age: 15, 
+    temperament: "bland",
+    color: "white"
+}, function(err, data) {
+    checkForErr(err, data);
+});
 
 /** Database Data Save */
 /*timBk.save(function (err, data) {
