@@ -27,7 +27,6 @@ Q:::::::QQ::::::::Q   C:::::CCCCCCCC::::C  C:::::CCCCCCCC::::CO:::::::OOO:::::::
      request       = require("request"),
      bodyParser    = require("body-parser"),
      mongoose      = require('mongoose'),
-     uri           = process.env.MONGOLAB_URI,
      PORT          = process.env.PORT || 3000,
      IP            = process.env.IP,
      app           = express();
@@ -58,7 +57,7 @@ Q:::::::QQ::::::::Q   C:::::CCCCCCCC::::C  C:::::CCCCCCCC::::CO:::::::OOO:::::::
 /**
  * Database Connection
  */
-mongoose.connect( uri || 'mongodb://127.0.0.1/birdsville');
+mongoose.connect( process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/birdsville');
 
 /**
  * Database Scheme
