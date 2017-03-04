@@ -57,7 +57,8 @@ Q:::::::QQ::::::::Q   C:::::CCCCCCCC::::C  C:::::CCCCCCCC::::CO:::::::OOO:::::::
 /**
  * Database Connection
  */
-mongoose.connect('mongodb://localhost/birdsville');
+mongoose.connect(process.env.MONGOLAB_URI || 
+  process.env.MONGOHQ_URL || 'mongodb://localhost/birdsville');
 
 /**
  * Database Scheme
