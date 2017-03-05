@@ -1,4 +1,8 @@
-var icon = document.querySelectorAll('i');
+var icon = document.querySelectorAll(' .caption > i');
+var birdLink = document.querySelectorAll('.birdLink');
+var imgOverlay = document.querySelectorAll('.img-overlay');
+var images = document.querySelectorAll('.img-responsive');
+var arrows = document.querySelectorAll('.fa-arrow-right');
 
 var reset = function() {
     icon.forEach(function(icn) {
@@ -8,9 +12,18 @@ var reset = function() {
     });
 }
 
+
 for(var x = 0; x < icon.length; x++) {
 
-
+    birdLink[x].addEventListener('mouseover', function() {
+        this.previousElementSibling.previousElementSibling.classList.add('overlayShow');
+        this.previousElementSibling.previousElementSibling.previousElementSibling.querySelector('img').classList.add('img-responsiveMove');
+        
+    });
+    birdLink[x].addEventListener('mouseout', function() {
+        this.previousElementSibling.previousElementSibling.classList.remove('overlayShow');
+        this.previousElementSibling.previousElementSibling.previousElementSibling.querySelector('img').classList.remove('img-responsiveMove');
+    });
     icon[x].addEventListener("click", function() {
         var setTimeOutFunc;
         var thisIcon = this;

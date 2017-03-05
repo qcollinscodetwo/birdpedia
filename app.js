@@ -29,6 +29,7 @@ Q:::::::QQ::::::::Q   C:::::CCCCCCCC::::C  C:::::CCCCCCCC::::CO:::::::OOO:::::::
      mongoose      = require('mongoose'),
      PORT          = process.env.PORT || 3000,
      IP            = process.env.IP,
+     uri           = "mongodb://heroku_n54wsvdg:mc04d2bhgl8tt2eub6ja6t3or7@ds117830.mlab.com:17830/heroku_n54wsvdg",
      app           = express();
 
 
@@ -57,7 +58,7 @@ Q:::::::QQ::::::::Q   C:::::CCCCCCCC::::C  C:::::CCCCCCCC::::CO:::::::OOO:::::::
 /**
  * Database Connection
  */
-mongoose.connect( "mongodb://heroku_n54wsvdg:mc04d2bhgl8tt2eub6ja6t3or7@ds117830.mlab.com:17830/heroku_n54wsvdg" || 'mongodb://localhost/birdsville');
+mongoose.connect( uri || 'mongodb://localhost/birdsville');
 
 /**
  * Database Scheme
@@ -91,7 +92,7 @@ var Bird = mongoose.model("Bird", birdSchema);
    // Index Route - Show a list of birds
    app.get("/birds", function(req, res) {
     Bird.find({}, function(err, allBirds) {
-      checkForErr(err, allBirds, "GET")(res, "birds", {birds: allBirds});
+      checkForErr(err, allBirds, "GET")(res, "index", {birds: allBirds});
     });
    });
   
@@ -114,8 +115,15 @@ var Bird = mongoose.model("Bird", birdSchema);
    });
 
    // Show Route -  Shows info about one bird
-   app.get("/dogs/:id", function(req, res) {
-    res.render("");
+   app.get("/birds/:id", function(req, res) {
+    Bird.find({}, function(err, allBirds) {
+      checkForErr(err, allBirds, "GET")(res, "show", {birds: allBirds});
+    });
+   });
+
+   // Show Route -  Shows info about one bird
+   app.get("*", function(req, res) {
+    res.send("There's nothing here.");
    });
 
  /************************************

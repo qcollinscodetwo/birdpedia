@@ -10,6 +10,37 @@ h1, h2, h3, h4, h5, p, a {
   text-align: center;
 }
 
+/* line 14, ../sass/_base.scss */
+.lnk {
+  color: lightgrey;
+  position: relative;
+  transition: 0.1s ease-in;
+  left: 0;
+  padding: 5px 35px;
+  display: flex;
+}
+/* line 21, ../sass/_base.scss */
+.lnk:hover {
+  color: lightgrey;
+  text-decoration: none;
+  left: -20px;
+}
+
+/* line 28, ../sass/_base.scss */
+.btn {
+  border: 2px solid lightgrey;
+  color: lightgrey;
+  background: transparent;
+  font-weight: bolder;
+  transition: 0.1s ease-in;
+}
+/* line 34, ../sass/_base.scss */
+.btn:hover {
+  background: lightgrey;
+  color: black;
+  border-color: lightgrey;
+}
+
 /* line 1, ../sass/pages/_home.scss */
 .home-section {
   display: flex;
@@ -17,51 +48,129 @@ h1, h2, h3, h4, h5, p, a {
   justify-content: center;
   text-align: center;
 }
+/* line 6, ../sass/pages/_home.scss */
+.home-section .jumbotron {
+  background: #141414;
+  color: #b4b4b4;
+}
 
-/* line 2, ../sass/pages/_birds.scss */
-.birds-section .img-container {
+/* line 3, ../sass/pages/_birds.scss */
+.birds-section .jumbotron {
+  background: #141414;
+  color: #b4b4b4;
+}
+/* line 10, ../sass/pages/_birds.scss */
+.birds-section .thumbnail-container {
   display: flex;
   flex-wrap: wrap;
   text-align: center;
 }
-/* line 6, ../sass/pages/_birds.scss */
-.birds-section .img-container .thumbnail {
+/* line 14, ../sass/pages/_birds.scss */
+.birds-section .thumbnail-container .thumbnail {
   border: none;
   padding: 0;
-  border-radius: 15px;
-  overflow: hidden;
   box-shadow: 1px 10px 20px -10px black;
   background: #141414;
+  min-height: 610px;
+  position: relative;
+  overflow: hidden;
 }
-/* line 13, ../sass/pages/_birds.scss */
-.birds-section .img-container .thumbnail .caption {
+/* line 22, ../sass/pages/_birds.scss */
+.birds-section .thumbnail-container .thumbnail .img-container {
+  position: relative;
+  overflow: hidden;
+}
+/* line 25, ../sass/pages/_birds.scss */
+.birds-section .thumbnail-container .thumbnail .img-container img {
+  min-height: 270px;
+  position: relative;
+  z-index: 0;
+  transition: 0.1s ease-in;
+}
+/* line 32, ../sass/pages/_birds.scss */
+.birds-section .thumbnail-container .thumbnail .img-overlay {
+  position: absolute;
+  content: "";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 270px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  top: 0;
+  transition: 0.1s ease-in-out;
+  overflow: hidden;
+}
+/* line 44, ../sass/pages/_birds.scss */
+.birds-section .thumbnail-container .thumbnail .img-overlay .fa-arrow-right {
+  font-size: 85px;
+  color: lightgrey;
+  position: relative;
+  left: -130px;
+  transition: 0.1s ease-in;
+  opacity: 0;
+}
+/* line 53, ../sass/pages/_birds.scss */
+.birds-section .thumbnail-container .thumbnail .caption {
   background: #141414;
   color: #b4b4b4;
-  position: relative;
+  z-index: 2;
 }
-/* line 17, ../sass/pages/_birds.scss */
-.birds-section .img-container .thumbnail .caption p {
+/* line 57, ../sass/pages/_birds.scss */
+.birds-section .thumbnail-container .thumbnail .caption p {
   color: grey;
 }
-/* line 20, ../sass/pages/_birds.scss */
-.birds-section .img-container .thumbnail .caption .timeLeft-container {
+/* line 60, ../sass/pages/_birds.scss */
+.birds-section .thumbnail-container .thumbnail .caption .timeLeft-container {
   position: absolute;
   bottom: 0;
   width: 100%;
   left: 0;
+  z-index: 7;
   padding-bottom: 10px;
 }
-/* line 27, ../sass/pages/_birds.scss */
-.birds-section .img-container .thumbnail .caption i {
+/* line 68, ../sass/pages/_birds.scss */
+.birds-section .thumbnail-container .thumbnail .caption i {
   position: absolute;
   bottom: 0;
   right: 0;
   padding: 1em;
   cursor: pointer;
+  z-index: 9;
+}
+/* line 77, ../sass/pages/_birds.scss */
+.birds-section .thumbnail-container .thumbnail .birdLink {
+  top: 0;
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+/* line 89, ../sass/pages/_birds.scss */
+.overlayShow {
+  background: rgba(0, 0, 0, 0.6) !important;
+}
+/* line 91, ../sass/pages/_birds.scss */
+.overlayShow > .fa-arrow-right {
+  left: 0px !important;
+  opacity: 1 !important;
+  text-shadow: 0px 10px 30px black;
+}
+
+/* line 98, ../sass/pages/_birds.scss */
+.img-responsiveMove {
+  transform: scale(1.2) rotate(3deg) !important;
 }
 
 /* line 2, ../sass/pages/_new.scss */
 .form-section .form-container {
   width: 30%;
   margin: 30px auto;
+}
+
+/* line 1, ../sass/_layout.scss */
+.navbar-inverse {
+  background: #141414;
 }

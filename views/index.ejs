@@ -6,16 +6,20 @@
         <h1>Welcome to Birdville</h1>
         <p>A Place for All things Bird</p>
         <p>
-          <a class="btn btn-primary btn-large" href="/birds/new">Add New Bird</a>
+          <a class="btn btn-large" href="/birds/new" style="font-weight:700">Add New Bird &nbsp;<i class="fa fa-plus"></i></a>
         </p>
       </div>
   </header>
-
-  <div class="row img-container">
+  <div class="row thumbnail-container">
     <% birds.forEach(function(bird) { %>
       <div class="col-md-3 col-sm-6">
         <div class="thumbnail">
-          <img class="img-responsive" style="min-height:270px" src=<%= bird.prevImage %> />
+          <div class="img-container">
+            <img class="img-responsive" src=<%= bird.prevImage %> />
+          </div>
+          <div class="img-overlay">
+            <i class="fa fa-arrow-right"></i>
+          </div>
           <div class="caption" style="min-height:270px">
               <h3> <%= bird.englishName %> </h3>
               <h5> (<%= bird.scientificName %>) </h5>
@@ -24,11 +28,12 @@
               <i class="fa fa-play" aria-hidden="true"></i>
               <audio src=<%= bird.audio %>></audio>
           </div>
+          <a class="birdLink" href=<%= "/birds/" + bird.id %>></a>
         </div>
       </div>
     <% }) %>
   </div>
-  <a href="/">Home</a>
+  <a class="lnk" href="/"><i style="font-size: 19px; width: 30px" class="fa fa-arrow-left"></i> Home</a>
 </section>
 
 <% include partials/footer %>

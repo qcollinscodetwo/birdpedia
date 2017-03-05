@@ -10,3 +10,30 @@ html {
 h1, h2, h3, h4, h5, p, a {
     text-align: center;
 }
+
+.lnk {
+    color: lightgrey;
+    position: relative;
+    transition: 0.1s ease-in;
+    left: 0;
+    padding: 5px 35px;
+    display: flex;
+    &:hover {
+        color: lightgrey;
+        text-decoration: none;
+        left: -20px;
+    }
+}
+
+.btn {
+    border: 2px solid lightgrey;
+    color: lightgrey;
+    background: transparent;
+    font-weight: bolder;
+    transition: 0.1s ease-in;
+    &:hover {
+        background: lightgrey;
+        color: black;
+        border-color: lightgrey;
+    }
+}
