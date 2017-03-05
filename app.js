@@ -116,12 +116,13 @@ var Bird = mongoose.model("Bird", birdSchema);
 
    // Show Route -  Shows info about one bird
    app.get("/birds/:id", function(req, res) {
-    Bird.find({}, function(err, allBirds) {
-      checkForErr(err, allBirds, "GET")(res, "show", {birds: allBirds});
-    });
+     var id = req.params.id;
+     Bird.findById(id, function(err, data) {
+       checkForErr(err, data, "GET")(res, "show", { bird: data });
+     });
    });
 
-   // Show Route -  Shows info about one bird
+   // Wrong Page 
    app.get("*", function(req, res) {
     res.send("There's nothing here.");
    });

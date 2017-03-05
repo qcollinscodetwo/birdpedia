@@ -48,11 +48,6 @@ h1, h2, h3, h4, h5, p, a {
   justify-content: center;
   text-align: center;
 }
-/* line 6, ../sass/pages/_home.scss */
-.home-section .jumbotron {
-  background: #141414;
-  color: #b4b4b4;
-}
 
 /* line 3, ../sass/pages/_birds.scss */
 .birds-section .jumbotron {
@@ -170,7 +165,51 @@ h1, h2, h3, h4, h5, p, a {
   margin: 30px auto;
 }
 
+/* line 2, ../sass/pages/_show.scss */
+.show-section .sidebar {
+  height: 400px;
+  background: #141414;
+  padding: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 1.3em;
+}
+/* line 9, ../sass/pages/_show.scss */
+.show-section .sidebar img {
+  padding: 0;
+  margin: 0;
+  min-height: 100%;
+  border-radius: 15px;
+}
+/* line 16, ../sass/pages/_show.scss */
+.show-section .info {
+  height: 400px;
+  background: #141414;
+}
+/* line 19, ../sass/pages/_show.scss */
+.show-section .info h4 {
+  color: lightgrey;
+  font-size: 1.8em;
+}
+/* line 23, ../sass/pages/_show.scss */
+.show-section .info p {
+  color: lightgrey;
+  font-size: 1.4em;
+  text-align: left;
+  margin-top: 1em;
+}
+/* line 30, ../sass/pages/_show.scss */
+.show-section section {
+  margin-bottom: 30px;
+}
+
 /* line 1, ../sass/_layout.scss */
 .navbar-inverse {
   background: #141414;
+}
+
+/* line 5, ../sass/_layout.scss */
+.jumbotron {
+  background: #141414;
+  color: #b4b4b4;
 }
