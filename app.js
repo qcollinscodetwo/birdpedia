@@ -58,7 +58,7 @@ Q:::::::QQ::::::::Q   C:::::CCCCCCCC::::C  C:::::CCCCCCCC::::CO:::::::OOO:::::::
 /**
  * Database Connection
  */
-mongoose.connect( uri || 'mongodb://localhost/birdsville');
+mongoose.connect( uri || 'mongodb://localhost/birdsville' );
 
 /**
  * Database Scheme
@@ -68,8 +68,31 @@ var birdSchema = new mongoose.Schema({
   scientificName: String,
   prevImage: String,
   audio: String,
-  description: String
+  description: String,
+  kingdom: String,
+  phylum: String,
+  className: String,
+  order: String,
+  family: String,
+  genus: String,
+  species: String,
+  distribution: {type: String, default: null},
+  longDescription: String,
+  behaviour: {type: String, default: null},
+  breeding: {type: String, default: null},
+  ecology: {type: String, default: null},
+  taxonomy: {type: String, default: null},
+  img01: {type: String, default: null},
+  img02: {type: String, default: null},
+  img03: {type: String, default: null},
+  img04: {type: String, default: null},
+  vid01: {type: String, default: null},
+  vid02: {type: String, default: null},
+  vid03: {type: String, default: null},
+  vid04: {type: String, default: null}
 });
+
+
 
 /**
  * Database Model
@@ -108,7 +131,55 @@ var Bird = mongoose.model("Bird", birdSchema);
          prevImage = req.body.prevImage,
          audio = req.body.audio,
          description = req.body.description,
-         newBird = {englishName: englishName, scientificName: scientificName, prevImage: prevImage, audio:audio, description:description};
+         kingdom = req.body.kingdom,
+         phylum = req.body.phylum,
+         className = req.body.className,
+         order = req.body.order,
+         family = req.body.family,
+         genus = req.body.genus,
+         species = req.body.species,
+         distribution = req.body.distribution,
+         longDescription = req.body.longDescription,
+         behaviour = req.body.behaviour,
+         breeding = req.body.breeding,
+         ecology = req.body.ecology,
+         taxonomy = req.body.taxonomy,
+         img01 = req.body.img01,
+         img02 = req.body.img02, 
+         img03 = req.body.img03,
+         img04 = req.body.img04,
+         vid01 = req.body.vid01,
+         vid02 = req.body.vid02,
+         vid03 = req.body.vid03,
+         vid04 = req.body.vid04,
+         newBird = {
+           englishName: englishName, 
+           scientificName: scientificName, 
+           prevImage: prevImage, 
+           audio:audio, 
+           description:description,
+           kingdom:kingdom,
+           phylum:phylum,
+           className:className,
+           order:order,
+           family:family,
+           genus:genus,
+           species:species,
+           distribution:distribution,
+           longDescription:longDescription,
+           behaviour:behaviour,
+           breeding:breeding,
+           ecology:ecology,
+           taxonomy:taxonomy,
+           img01:img01,
+           img02:img02,
+           img03:img03,
+           img04:img04,
+           vid01:vid01,
+           vid02:vid02,
+           vid03:vid03,
+           vid04:vid04
+          };
          Bird.create(newBird, function(err, data) {
           checkForErr(err, data, "POST")(res, "/birds");
          });

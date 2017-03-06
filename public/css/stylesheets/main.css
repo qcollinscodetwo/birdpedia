@@ -41,6 +41,17 @@ h1, h2, h3, h4, h5, p, a {
   border-color: lightgrey;
 }
 
+/* line 1, ../sass/_layout.scss */
+.navbar-inverse {
+  background: #141414;
+}
+
+/* line 5, ../sass/_layout.scss */
+.jumbotron {
+  background: #141414;
+  color: #b4b4b4;
+}
+
 /* line 1, ../sass/pages/_home.scss */
 .home-section {
   display: flex;
@@ -49,18 +60,18 @@ h1, h2, h3, h4, h5, p, a {
   text-align: center;
 }
 
-/* line 3, ../sass/pages/_birds.scss */
+/* line 3, ../sass/pages/_index.scss */
 .birds-section .jumbotron {
   background: #141414;
   color: #b4b4b4;
 }
-/* line 10, ../sass/pages/_birds.scss */
+/* line 10, ../sass/pages/_index.scss */
 .birds-section .thumbnail-container {
   display: flex;
   flex-wrap: wrap;
   text-align: center;
 }
-/* line 14, ../sass/pages/_birds.scss */
+/* line 2, ../sass/_mixins.scss */
 .birds-section .thumbnail-container .thumbnail {
   border: none;
   padding: 0;
@@ -70,19 +81,19 @@ h1, h2, h3, h4, h5, p, a {
   position: relative;
   overflow: hidden;
 }
-/* line 22, ../sass/pages/_birds.scss */
+/* line 10, ../sass/_mixins.scss */
 .birds-section .thumbnail-container .thumbnail .img-container {
   position: relative;
   overflow: hidden;
 }
-/* line 25, ../sass/pages/_birds.scss */
+/* line 13, ../sass/_mixins.scss */
 .birds-section .thumbnail-container .thumbnail .img-container img {
   min-height: 270px;
   position: relative;
   z-index: 0;
   transition: 0.1s ease-in;
 }
-/* line 32, ../sass/pages/_birds.scss */
+/* line 20, ../sass/_mixins.scss */
 .birds-section .thumbnail-container .thumbnail .img-overlay {
   position: absolute;
   content: "";
@@ -96,7 +107,7 @@ h1, h2, h3, h4, h5, p, a {
   transition: 0.1s ease-in-out;
   overflow: hidden;
 }
-/* line 44, ../sass/pages/_birds.scss */
+/* line 32, ../sass/_mixins.scss */
 .birds-section .thumbnail-container .thumbnail .img-overlay .fa-arrow-right {
   font-size: 85px;
   color: lightgrey;
@@ -105,17 +116,17 @@ h1, h2, h3, h4, h5, p, a {
   transition: 0.1s ease-in;
   opacity: 0;
 }
-/* line 53, ../sass/pages/_birds.scss */
+/* line 41, ../sass/_mixins.scss */
 .birds-section .thumbnail-container .thumbnail .caption {
   background: #141414;
   color: #b4b4b4;
   z-index: 2;
 }
-/* line 57, ../sass/pages/_birds.scss */
+/* line 45, ../sass/_mixins.scss */
 .birds-section .thumbnail-container .thumbnail .caption p {
   color: grey;
 }
-/* line 60, ../sass/pages/_birds.scss */
+/* line 48, ../sass/_mixins.scss */
 .birds-section .thumbnail-container .thumbnail .caption .timeLeft-container {
   position: absolute;
   bottom: 0;
@@ -124,7 +135,7 @@ h1, h2, h3, h4, h5, p, a {
   z-index: 7;
   padding-bottom: 10px;
 }
-/* line 68, ../sass/pages/_birds.scss */
+/* line 56, ../sass/_mixins.scss */
 .birds-section .thumbnail-container .thumbnail .caption i {
   position: absolute;
   bottom: 0;
@@ -133,7 +144,7 @@ h1, h2, h3, h4, h5, p, a {
   cursor: pointer;
   z-index: 9;
 }
-/* line 77, ../sass/pages/_birds.scss */
+/* line 65, ../sass/_mixins.scss */
 .birds-section .thumbnail-container .thumbnail .birdLink {
   top: 0;
   display: block;
@@ -143,18 +154,18 @@ h1, h2, h3, h4, h5, p, a {
   z-index: 1;
 }
 
-/* line 89, ../sass/pages/_birds.scss */
+/* line 18, ../sass/pages/_index.scss */
 .overlayShow {
   background: rgba(0, 0, 0, 0.6) !important;
 }
-/* line 91, ../sass/pages/_birds.scss */
+/* line 20, ../sass/pages/_index.scss */
 .overlayShow > .fa-arrow-right {
   left: 0px !important;
   opacity: 1 !important;
   text-shadow: 0px 10px 30px black;
 }
 
-/* line 98, ../sass/pages/_birds.scss */
+/* line 27, ../sass/pages/_index.scss */
 .img-responsiveMove {
   transform: scale(1.2) rotate(3deg) !important;
 }
@@ -166,50 +177,157 @@ h1, h2, h3, h4, h5, p, a {
 }
 
 /* line 2, ../sass/pages/_show.scss */
+.show-section .jumbotron {
+  box-shadow: 1px 10px 20px -10px black;
+}
+/* line 5, ../sass/pages/_show.scss */
 .show-section .sidebar {
-  height: 400px;
-  background: #141414;
+  min-height: 400px;
   padding: 0;
   overflow: hidden;
   box-sizing: border-box;
   padding: 1.3em;
+  padding-top: 0;
 }
-/* line 9, ../sass/pages/_show.scss */
-.show-section .sidebar img {
+/* line 2, ../sass/_mixins.scss */
+.show-section .sidebar .thumbnail {
+  border: none;
   padding: 0;
-  margin: 0;
-  min-height: 100%;
-  border-radius: 15px;
-}
-/* line 16, ../sass/pages/_show.scss */
-.show-section .info {
-  height: 400px;
+  box-shadow: 1px 10px 20px -10px black;
   background: #141414;
+  min-height: 610px;
+  position: relative;
+  overflow: hidden;
 }
-/* line 19, ../sass/pages/_show.scss */
+/* line 10, ../sass/_mixins.scss */
+.show-section .sidebar .thumbnail .img-container {
+  position: relative;
+  overflow: hidden;
+}
+/* line 13, ../sass/_mixins.scss */
+.show-section .sidebar .thumbnail .img-container img {
+  min-height: 270px;
+  position: relative;
+  z-index: 0;
+  transition: 0.1s ease-in;
+}
+/* line 20, ../sass/_mixins.scss */
+.show-section .sidebar .thumbnail .img-overlay {
+  position: absolute;
+  content: "";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 270px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  top: 0;
+  transition: 0.1s ease-in-out;
+  overflow: hidden;
+}
+/* line 32, ../sass/_mixins.scss */
+.show-section .sidebar .thumbnail .img-overlay .fa-arrow-right {
+  font-size: 85px;
+  color: lightgrey;
+  position: relative;
+  left: -130px;
+  transition: 0.1s ease-in;
+  opacity: 0;
+}
+/* line 41, ../sass/_mixins.scss */
+.show-section .sidebar .thumbnail .caption {
+  background: #141414;
+  color: #b4b4b4;
+  z-index: 2;
+}
+/* line 45, ../sass/_mixins.scss */
+.show-section .sidebar .thumbnail .caption p {
+  color: grey;
+}
+/* line 48, ../sass/_mixins.scss */
+.show-section .sidebar .thumbnail .caption .timeLeft-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  z-index: 7;
+  padding-bottom: 10px;
+}
+/* line 56, ../sass/_mixins.scss */
+.show-section .sidebar .thumbnail .caption i {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 1em;
+  cursor: pointer;
+  z-index: 9;
+}
+/* line 65, ../sass/_mixins.scss */
+.show-section .sidebar .thumbnail .birdLink {
+  top: 0;
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+/* line 13, ../sass/pages/_show.scss */
+.show-section .sidebar a {
+  cursor: default;
+}
+/* line 17, ../sass/pages/_show.scss */
+.show-section .thumbnail {
+  box-shadow: 0px 0px 0px 0px transparent !important;
+  background: #0f0f0f !important;
+}
+/* line 20, ../sass/pages/_show.scss */
+.show-section .thumbnail .caption {
+  padding: 0;
+  background: #0f0f0f !important;
+}
+/* line 23, ../sass/pages/_show.scss */
+.show-section .thumbnail .caption > span {
+  font-weight: 700;
+}
+/* line 25, ../sass/pages/_show.scss */
+.show-section .thumbnail .caption > span > span {
+  font-weight: 100;
+}
+/* line 29, ../sass/pages/_show.scss */
+.show-section .thumbnail .caption .caption-info, .show-section .thumbnail .caption > span > span {
+  display: flex;
+  background: #141414;
+  padding-left: 10px;
+  margin: 10px 0px;
+  box-shadow: 1px 10px 20px -10px black;
+  align-items: center;
+}
+/* line 39, ../sass/pages/_show.scss */
+.show-section .info {
+  padding: 0.8em 1.5em;
+  background: #141414;
+  box-shadow: 1px 10px 20px -10px black;
+}
+/* line 43, ../sass/pages/_show.scss */
+.show-section .info .sourceText {
+  text-align: right;
+  letter-spacing: 0.1em;
+}
+/* line 47, ../sass/pages/_show.scss */
 .show-section .info h4 {
+  text-align: left;
   color: lightgrey;
   font-size: 1.8em;
 }
-/* line 23, ../sass/pages/_show.scss */
+/* line 52, ../sass/pages/_show.scss */
 .show-section .info p {
   color: lightgrey;
-  font-size: 1.4em;
+  font-size: 1.2em;
   text-align: left;
   margin-top: 1em;
+  font-weight: 100;
 }
-/* line 30, ../sass/pages/_show.scss */
+/* line 60, ../sass/pages/_show.scss */
 .show-section section {
   margin-bottom: 30px;
-}
-
-/* line 1, ../sass/_layout.scss */
-.navbar-inverse {
-  background: #141414;
-}
-
-/* line 5, ../sass/_layout.scss */
-.jumbotron {
-  background: #141414;
-  color: #b4b4b4;
 }

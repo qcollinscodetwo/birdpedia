@@ -1,7 +1,8 @@
 @import 'vars';
+@import 'mixins';
 @import 'base';
+@import 'layout';
 @import 'pages/home';
-@import 'pages/birds';
+@import 'pages/index';
 @import 'pages/new';
 @import 'pages/show';
-@import 'layout';

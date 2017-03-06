@@ -1,0 +1,29 @@
+
+.birds-section {
+    .jumbotron {
+        background: rgba(20, 20, 20, 1);
+        color: rgba(180, 180, 180, 1);
+        .container {
+
+        }
+    }
+    .thumbnail-container {
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+        @include thumbnail;
+    }
+}
+
+.overlayShow {
+    background: rgba(0, 0, 0, 0.6)!important;
+    & > .fa-arrow-right {
+            left: 0px!important;
+            opacity: 1!important;
+            text-shadow: 0px 10px 30px black;
+        }
+}
+
+.img-responsiveMove {
+    transform: scale(1.2) rotate(3deg)!important;
+}

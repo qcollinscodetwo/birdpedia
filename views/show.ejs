@@ -10,16 +10,69 @@
         </div>
         <section class="row">
             <aside class="col-lg-4 sidebar">
-                <img class="img-responsive" alt="" src=<%= bird.prevImage %> />
+                <div class="row">
+                    <div class="thumbnail">
+                        <div class="img-container">
+                            <img class="img-responsive" src=<%= bird.prevImage %> />
+                        </div>
+                        <div class="caption" style="min-height:270px">
+                            <span class="caption-info">Scientific Name: <span> <%= bird.scientificName %></span> </span>
+                            <span class="caption-info">Kingdom: <span> <%= bird.kingdom %></span> </span>
+                            <span class="caption-info">Phylum: <span> <%= bird.phylum %></span> </span>
+                            <span class="caption-info">Order: <span> <%= bird.order %></span> </span>
+                            <span class="caption-info">Family: <span> <%= bird.family %></span> </span>
+                            <span class="caption-info">Genus: <span> <%= bird.genus %></span> </span>
+                            <span class="caption-info">Species: <span> <%= bird.species %></span> </span>
+                            <p class="timeLeft-container" style="display:none">Time Left:<span class="timeLeft"> 00:00</span> </p>
+                            <i class="fa fa-play" style="display:none" aria-hidden="true"></i>
+                            <audio src=<%= bird.audio %>></audio>
+                        </div>
+                        <a class="disableLink"></a>
+                    </div>
+                </div>
             </aside>
             <div class="col-lg-7 col-lg-push-1 info">
-                <h4>Description </h4>
-                <p><%= bird.description %></p>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p class="sourceText">Source:<span> Wikipedia </span> <a href="#"><i class="fa fa-external-link" aria-hidden="true"></i></a> </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h4>Distribution</h4>
+                        <p><%= bird.distribution %></p>
+                    </div>
+                </div>
             </div>
         </section>
         <section class="row">
             <div class="col-lg-12 info">
-            
+                <h4>Description</h4>
+                <p><%= bird.longDescription %></p>
+            </div>
+        </section>
+        <section class="row">
+            <div class="col-lg-12 info">
+                <h4>Behaviour</h4>
+                <p><%= bird.behaviour %></p>
+            </div>
+        </section>
+        <section class="row">
+            <div class="col-lg-12 info">
+                <h4>Breeding</h4>
+                <p><%= bird.breeding %></p>
+            </div>
+        </section>
+        <section class="row">
+            <div class="col-lg-12 info">
+                <h4>Ecology</h4>
+                <p><%= bird.ecology %></p>
+            </div>
+        </section>
+        <section class="row">
+            <div class="col-lg-12 info">
+                <h4>Taxonomy</h4>
+                <p><%= bird.taxonomy %></p>
             </div>
         </section>
         <a class="lnk" href="/birds"> <i style="font-size: 19px; width: 30px" class="fa fa-arrow-left"></i> Go Back</a>
