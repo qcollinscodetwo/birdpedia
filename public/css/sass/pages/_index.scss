@@ -12,6 +12,10 @@
         flex-wrap: wrap;
         text-align: center;
         @include thumbnail;
+        img {
+            max-height: 270px;
+            min-width: 100%;
+        }
     }
 }
 

@@ -153,19 +153,24 @@ h1, h2, h3, h4, h5, p, a {
   width: 100%;
   z-index: 1;
 }
+/* line 15, ../sass/pages/_index.scss */
+.birds-section .thumbnail-container img {
+  max-height: 270px;
+  min-width: 100%;
+}
 
-/* line 18, ../sass/pages/_index.scss */
+/* line 22, ../sass/pages/_index.scss */
 .overlayShow {
   background: rgba(0, 0, 0, 0.6) !important;
 }
-/* line 20, ../sass/pages/_index.scss */
+/* line 24, ../sass/pages/_index.scss */
 .overlayShow > .fa-arrow-right {
   left: 0px !important;
   opacity: 1 !important;
   text-shadow: 0px 10px 30px black;
 }
 
-/* line 27, ../sass/pages/_index.scss */
+/* line 31, ../sass/pages/_index.scss */
 .img-responsiveMove {
   transform: scale(1.2) rotate(3deg) !important;
 }

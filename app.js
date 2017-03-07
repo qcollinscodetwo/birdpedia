@@ -58,7 +58,7 @@ Q:::::::QQ::::::::Q   C:::::CCCCCCCC::::C  C:::::CCCCCCCC::::CO:::::::OOO:::::::
 /**
  * Database Connection
  */
-mongoose.connect( uri || 'mongodb://localhost/birdsville' );
+mongoose.connect(uri || 'mongodb://127.0.0.1/birdsville');
 
 /**
  * Database Scheme
@@ -245,3 +245,19 @@ function checkForErr(err, data, type) {
  app.listen(PORT, IP, function() {
   console.log("listening on port " + PORT);
 });
+
+/**
+ * mongodump
+ * export cmd 1 collection:
+ * mongodump --db=birdsville --collection=birds
+ * 
+ * 
+ * MongoLab 
+ * import cmd: 
+ * 
+ * mongorestore -h ds117830.mlab.com:17830 -d heroku_n54wsvdg -u heroku_n54wsvdg -p mc04d2bhgl8tt2eub6ja6t3or7 birdsville //cd into dump folder
+ * 
+ * 
+ * 
+ * 
+ */
