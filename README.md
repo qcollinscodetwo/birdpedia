@@ -1,5 +1,3 @@
-<img src="logo3.png" />
-
 # Birdsville Web App
 
 ### Live Demo: https://birdville.herokuapp.com
